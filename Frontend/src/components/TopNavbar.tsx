@@ -4,26 +4,26 @@ import { NavLink } from 'react-router-dom';
 
 interface TopNavbarProps {
   toggleSidebar?: () => void;
+  toggleChat?: () => void;
 }
 
-const TopNavbar: React.FC<TopNavbarProps> = ({ toggleSidebar }) => {
+const TopNavbar: React.FC<TopNavbarProps> = ({ toggleSidebar, toggleChat }) => {
   return (
     <div className="h-14 border-b border-blue-300 flex items-center justify-between px-4 bg-gray-100">
       {/* Left section with logo and toggle */}
       <div className="flex items-center">
-       
         <div className="mr-4">
           <div className="w-0 h-0
                          border-l-8 border-l-transparent
                          border-r-8 border-r-transparent
                          border-b-16 border-b-purple-600" />
         </div>
-          <div className="px-4 py-2 border-none border-purple-200 flex items-center">
-                <ArrowLeft className="h-4 w-4 mr-2" />
-                <NavLink to="/">
-                    <span className="text-sm">Go Back to Home</span>
-                </NavLink>
-            </div>
+        <div className="px-4 py-2 border-none border-purple-200 flex items-center">
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          <NavLink to="/">
+            <span className="text-sm">Go Back to Home</span>
+          </NavLink>
+        </div>
         {/* Sidebar toggle button */}
         <button onClick={toggleSidebar} className="p-10 rounded transition-colors">
           <Menu className="h-5 w-5 text-gray-700" />
@@ -49,7 +49,7 @@ const TopNavbar: React.FC<TopNavbarProps> = ({ toggleSidebar }) => {
         <button className="p-1 rounded hover:bg-gray-100">
           <Bell className="h-5 w-5 text-gray-700" />
         </button>
-        <button className="p-1 rounded hover:bg-gray-100">
+        <button onClick={toggleChat} className="p-1 rounded hover:bg-gray-100">
           <MessageCircle className="h-5 w-5 text-gray-700" />
         </button>
         <div className="ml-2 flex items-center">
